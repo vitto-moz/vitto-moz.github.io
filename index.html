@@ -9,11 +9,31 @@
   <link rel="icon" type="image/png" href="http://fountainjs.io/assets/imgs/fountain.png" />
 <link href="index-d59b521793e6d1079799c0dc6e50d65c.css" rel="stylesheet"></head>
 <body ng-app="app">
+  <script>
+      window.fbAsyncInit = function() {
+          FB.init({
+              appId      : '2049381101955741',
+              xfbml      : true,
+              version    : 'v2.9'
+          });
+
+          // ADD ADDITIONAL FACEBOOK CODE HERE
+      };
+
+      (function(d, s, id){
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) {return;}
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/sdk.js";
+          fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+  </script>
   <div class="container">
     <div class="left-block">
       <sidebar></sidebar>
     </div>
     <div class="right-block" >
+      <h1 id="fb-welcome"></h1>
       <ui-view></ui-view>
     </div>
   </div>
